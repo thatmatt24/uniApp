@@ -1,0 +1,19 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @student.name %>
+  <ul>
+    <% @student.sections.each do |s| %>
+      <li><%= s.course_section %></li>
+    <% end %>
+
+    <% @student.courses.each do |c| %>
+      <li><%= c.course_id %>
+    <% end %>
+
+    end %>
+  </ul>
+</p>
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>
