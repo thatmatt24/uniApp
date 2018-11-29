@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Courses</h1>
+<br>
+<%= form_tag(courses_path, method: "get") do %>
+  <%= label_tag(:query, "Search for:") %>
+  <%= text_field_tag(:query) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
 
 <table>
   <thead>
@@ -29,11 +36,7 @@
 </table>
 
 <br>
-<%#= form_tag(search_course_url, method: "get") do %>
-  <%#= label_tag(:query, "Search for:") %>
-  <%#= text_field_tag(:query) %>
-  <%#= submit_tag("Search") %>
-<%# end %>
+
 
 
 <%= link_to 'New Course', new_course_path %>

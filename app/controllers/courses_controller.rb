@@ -71,5 +71,9 @@ class CoursesController < ApplicationController
     def course_params
       params.require(:course).permit(:name, :department, :number, :credit_hours)
     end
-
+    
+    def search
+      @courses = Course.where("name like ? OR department like ? OR number like ? OR credits like ?","%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%")
+      render :index
+  end
 end
